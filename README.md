@@ -1,1 +1,1 @@
-# config
+# Assorted configuration files and scripts
