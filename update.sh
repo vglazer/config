@@ -52,8 +52,12 @@ if [[ $os_type == "Darwin" ]] ; then
     else
         echo "Homebrew not found!"
     fi
-elif [[ os_type == "Linux" ]] ; then
-    echo "You're on Linux!"
+elif [[ $os_type == "Linux" ]] ; then
+    echo "Running apt-get..."
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+    sudo apt-get autoclean -y
+    sudo apt-get autoremove -y
 fi
 
 opam_path=$(which opam)
