@@ -60,6 +60,17 @@ elif [[ $os_type == "Linux" ]] ; then
     sudo apt-get autoremove -y
 fi
 
+torch_path=$(which th)
+if [[ -x $torch_path ]]; then
+    echo "Found torch at $torch_path"
+
+    echo "Updating torch"
+    cd $(dirname $torch_path)/../.. ; ./update.sh; cd -
+    echo "Done updating Torch"
+else
+    echo "Torch not found!"
+fi
+
 opam_path=$(which opam)
 if [[ -x $opam_path ]] ; then
     echo "Found opam at $opam_path"
