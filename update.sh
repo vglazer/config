@@ -28,10 +28,10 @@ if [[ $os_type == "Darwin" ]] ; then
         if [[ "$found_conda" == true ]] ; then
             echo "Removing Anaconda from PATH to avoid confusing Homebrew..."
             original_path=$PATH
-            echo "Original PATH: $original_path"
+#           echo "Original PATH: $original_path"
             remove_anaconda='chomp; print(join(":", grep { !/anaconda/ } split(/:/, $_)), "\n");'
             new_path=$(echo $PATH | perl -ne "$remove_anaconda")
-            echo "New PATH: $new_path"
+#           echo "New PATH: $new_path"
             export PATH=$new_path
             echo "Done removing Anaconda from PATH!"
         fi
