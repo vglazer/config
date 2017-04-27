@@ -71,13 +71,27 @@ else
     echo "Torch not found!"
 fi
 
-opam_path=$(which opam)
-if [[ -x $opam_path ]] ; then
-    echo "Found opam at $opam_path"
-
-    echo "Updating OPAM..."
-    opam update -u -y
-    echo "Done updating OPAM"
-else
-    echo "OPAM not found!"
+git_path=$(which git)
+if [[ -x $git_path ]]; then
+    echo "Found git at $git_oath"
+    echo "Checking for repos..."
+    if [[ -e $HOME/repos ]]; then
+        echo "Found repos"
+        for dir in $(ls $HOME/repos); do
+            cd $HOME/repos/$dir
+            git pull
+            cd -
+        done
+    fi
 fi
+
+#opam_path=$(which opam)
+#if [[ -x $opam_path ]] ; then
+#    echo "Found opam at $opam_path"
+#
+#    echo "Updating OPAM..."
+#    opam update -u -y
+#    echo "Done updating OPAM"
+#else
+#    echo "OPAM not found!"
+#fi
