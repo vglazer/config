@@ -1,5 +1,7 @@
 #!/bin/bash
 
+starting_dir=$(pwd)
+
 conda_path=$(which conda)
 found_conda=false
 if [[ -x $conda_path ]] ; then
@@ -78,12 +80,15 @@ if [[ -x $git_path ]]; then
     if [[ -e $HOME/repos ]]; then
         echo "Found repos"
         for dir in $(ls $HOME/repos); do
-            cd $HOME/repos/$dir
+            repo_dir=$HOME/repos/$dir
+            echo "Updating $repo_dir..."
+            cd $repo_dir
             git pull
-            cd -
         done
     fi
 fi
+
+cd $starting_dir
 
 #opam_path=$(which opam)
 #if [[ -x $opam_path ]] ; then
