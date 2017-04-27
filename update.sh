@@ -73,7 +73,7 @@ fi
 
 git_path=$(which git)
 if [[ -x $git_path ]]; then
-    echo "Found git at $git_oath"
+    echo "Found git at $git_path"
     echo "Checking for repos..."
     if [[ -e $HOME/repos ]]; then
         echo "Found repos"
