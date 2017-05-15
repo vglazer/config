@@ -43,6 +43,7 @@ if [[ $os_type == "Darwin" ]] ; then
         brew upgrade
         brew linkapps
         brew cleanup
+        brew prune
         echo "Done updating Homebrew!"
 
         # Leave PATH the way we found it
