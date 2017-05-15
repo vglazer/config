@@ -60,7 +60,7 @@ elif [[ $os_type == "Linux" ]] ; then
     sudo apt-get update -y
     sudo apt-get upgrade -y
     sudo apt-get autoclean -y
-    sudo apt-get autoremove -y
+    sudo apt autoremove -y
 fi
 
 torch_path=$(which th)
