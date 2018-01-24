@@ -39,7 +39,7 @@ if [[ $os_type == "Darwin" ]] ; then
         echo "Updating Homebrew..."
         brew update
         brew upgrade
-        brew linkapps
+ #      brew linkapps
         brew cleanup
         echo "Done updating Homebrew!"
 
