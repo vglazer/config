@@ -1,5 +1,7 @@
 #!/bin/bash
 
+starting_dir=$(pwd)
+
 conda_path=$(which conda)
 found_conda=false
 if [[ -x $conda_path ]] ; then
@@ -41,6 +43,7 @@ if [[ $os_type == "Darwin" ]] ; then
         brew upgrade
  #      brew linkapps
         brew cleanup
+        brew prune
         echo "Done updating Homebrew!"
 
         # Leave PATH the way we found it
@@ -57,7 +60,7 @@ elif [[ $os_type == "Linux" ]] ; then
     sudo apt-get update -y
     sudo apt-get upgrade -y
     sudo apt-get autoclean -y
-    sudo apt-get autoremove -y
+    sudo apt autoremove -y
 fi
 
 torch_path=$(which th)
@@ -71,13 +74,30 @@ else
     echo "Torch not found!"
 fi
 
-opam_path=$(which opam)
-if [[ -x $opam_path ]] ; then
-    echo "Found opam at $opam_path"
-
-    echo "Updating OPAM..."
-    opam update -u -y
-    echo "Done updating OPAM"
-else
-    echo "OPAM not found!"
+git_path=$(which git)
+if [[ -x $git_path ]]; then
+    echo "Found git at $git_path"
+    echo "Checking for repos..."
+    if [[ -e $HOME/repos ]]; then
+        echo "Found repos"
+        for dir in $(ls $HOME/repos); do
+            repo_dir=$HOME/repos/$dir
+            echo "Updating $repo_dir..."
+            cd $repo_dir
+            git pull
+        done
+    fi
 fi
+
+cd $starting_dir
+
+#opam_path=$(which opam)
+#if [[ -x $opam_path ]] ; then
+#    echo "Found opam at $opam_path"
+#
+#    echo "Updating OPAM..."
+#    opam update -u -y
+#    echo "Done updating OPAM"
+#else
+#    echo "OPAM not found!"
+#fi
