@@ -9,9 +9,9 @@ if [[ -x $conda_path ]] ; then
     found_conda=true
     
     echo "Updating Anaconda..."
-    conda update conda -y
-    conda update anaconda -y
-    conda clean --all -y
+    conda update conda 
+    conda update anaconda 
+    conda clean --all 
     echo "Done updating Anaconda!"
 else
     echo "Anaconda not found!"
