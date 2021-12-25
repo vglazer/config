@@ -103,22 +103,22 @@
   :ensure t)
 
 ;; Note that this slows down startup significantly
-;; (use-package erlang
-;;  :load-path ("/Users/victor/bin/erls/24.1.2/lib/tools-3.5.1/emacs")
-;;  :hook (after-save . ivy-erlang-complete-reparse)
-;;  :custom (ivy-erlang-complete-erlang-root "/Users/victor/bin/erls/24.1.2/")
-;;  :config (ivy-erlang-complete-init)
-;;  :mode (("\\.erl?$" . erlang-mode)
-;;	 ("rebar\\.config$" . erlang-mode)
-;;     ("relx\\.config$" . erlang-mode)
-;;	 ("sys\\.config\\.src$" . erlang-mode)
-;;	 ("sys\\.config$" . erlang-mode)
-;;	 ("\\.config\\.src?$" . erlang-mode)
-;;	 ("\\.config\\.script?$" . erlang-mode)
-;;	 ("\\.hrl?$" . erlang-mode)
-;;	 ("\\.app?$" . erlang-mode)
-;;	 ("\\.app.src?$" . erlang-mode)
-;;	 ("\\Emakefile" . erlang-mode)))
+(use-package erlang
+  :load-path ("/Users/victor/bin/erls/24.1.2/lib/tools-3.5.1/emacs")
+  :hook (after-save . ivy-erlang-complete-reparse)
+  :custom (ivy-erlang-complete-erlang-root "/Users/victor/bin/erls/24.1.2/")
+  :config (ivy-erlang-complete-init)
+  :mode (("\\.erl?$" . erlang-mode)
+	 ("rebar\\.config$" . erlang-mode)
+     ("relx\\.config$" . erlang-mode)
+	 ("sys\\.config\\.src$" . erlang-mode)
+	 ("sys\\.config$" . erlang-mode)
+	 ("\\.config\\.src?$" . erlang-mode)
+	 ("\\.config\\.script?$" . erlang-mode)
+	 ("\\.hrl?$" . erlang-mode)
+	 ("\\.app?$" . erlang-mode)
+	 ("\\.app.src?$" . erlang-mode)
+	 ("\\Emakefile" . erlang-mode)))
 ;; Erlang stuff ends
 
 ;; Haskell stuff
