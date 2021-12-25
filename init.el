@@ -48,14 +48,16 @@
   :ensure t)
 
 ;; On-the-fly linting
+;; Turn on the Flycheck static analyzer globally
 (use-package flycheck
   :ensure t
   :delight
   :config (global-flycheck-mode))
+;; This causes Flycheck messages to be displayed as "pop-up tips"
 (with-eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
-;; This sets up some keybindings for stepping through Flycheck errors
+;; This sets up some keybindings for stepping through Flycheck messages
 (use-package hydra
   :defer 2
   :bind ("C-c f" . hydra-flycheck/body))
@@ -103,7 +105,7 @@
   :ensure t)
 
 ;; Note that this slows down startup significantly
-(use-package erlang
+ (use-package erlang
   :load-path ("/Users/victor/bin/erls/24.1.2/lib/tools-3.5.1/emacs")
   :hook (after-save . ivy-erlang-complete-reparse)
   :custom (ivy-erlang-complete-erlang-root "/Users/victor/bin/erls/24.1.2/")
@@ -122,6 +124,7 @@
 ;; Erlang stuff ends
 
 ;; Haskell stuff
+;; Tell Emacs where stack puts the binaries it builds
 (let ((my-stack-path (expand-file-name "~/.local/bin")))
   (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
   (add-to-list 'exec-path my-stack-path))
