@@ -58,3 +58,7 @@ set autowrite
 syntax on
 set wildmenu
 set wildmode=list:longest,full
+
+packadd! dracula
+syntax enable
+colorscheme dracula
