@@ -81,6 +81,7 @@ plugins=(
 	zsh-syntax-highlighting
 	you-should-use
 	zsh-bat
+	macos
 )
 
 source $ZSH/oh-my-zsh.sh
