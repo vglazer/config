@@ -80,7 +80,6 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	you-should-use
-	zsh-bat
 	macos
 )
 
