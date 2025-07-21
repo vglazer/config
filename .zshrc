@@ -130,6 +130,11 @@ unset __conda_setup
 export JAVA_HOME="/opt/homebrew/opt/openjdk"
 export PATH="$JAVA_HOME/bin:$PATH"
 
+# Ruby
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.4.1
+
 # Gemini CLI
 export GEMINI_API_KEY="AIzaSyAQUeoK5FKBtpGGxLOJxcQa9IebnemqLu4"
 export GEMINI_SANDBOX=true
