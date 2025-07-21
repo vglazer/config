@@ -29,7 +29,7 @@ export BAT_THEME="Dracula"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -110,3 +110,29 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/glazer/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/glazer/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/glazer/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/glazer/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Open JDK
+export JAVA_HOME="/opt/homebrew/opt/openjdk"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Gemini CLI
+export GEMINI_API_KEY="AIzaSyAQUeoK5FKBtpGGxLOJxcQa9IebnemqLu4"
+export GEMINI_SANDBOX=true
+export SEATBELT_PROFILE="permissive-open"
+
+. "$HOME/.local/bin/env"
