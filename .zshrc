@@ -135,8 +135,4 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.4.1
 
-# Gemini CLI
-export GEMINI_SANDBOX=true
-export SEATBELT_PROFILE="permissive-open"
-
 . "$HOME/.local/bin/env"
